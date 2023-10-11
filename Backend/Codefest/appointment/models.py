@@ -1,16 +1,17 @@
 from django.db import models
 from administrator.models import Administrator
 from therapist.models import Therapist
-#from client.models import Client
+from client.models import Client
 
 # Create your models here.
 class Appointment(models.Model):
-    appointment_id = models.CharField(max_length=30)
+    appointment_id = models.IntegerField(primary_key=True, auto_created=True)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
     status = models.CharField(max_length=30)
-    therapist_name = models.ForeignKey(Therapist, on_delete=models.CASCADE)
-    admin_name = models.ForeignKey(Administrator, on_delete=models.CASCADE)
+    client_id = models.ForeignKey(Client.client_id, on_delete=models.CASCADE, )
+    therapist_id = models.ForeignKey(Therapist.therapist_id, on_delete=models.CASCADE)
+    administrator_id = models.ForeignKey(Administrator.administrator_id, on_delete=models.CASCADE)
 
     def _str_(self):
         return self.name
