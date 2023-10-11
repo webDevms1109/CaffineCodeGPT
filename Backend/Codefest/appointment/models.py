@@ -6,8 +6,8 @@ from client.models import Client
 # Create your models here.
 class Appointment(models.Model):
     appointment_id = models.CharField(max_length=30)
-    start_time = models.CharField(max_length=30)
-    end_time = models.CharField(max_length=30)
+    start_time = models.DateTimeField()
+    end_time = models.DateTimeField()
     status = models.CharField(max_length=30)
     client_name = models.ForeignKey(Client, on_delete=models.CASCADE)
     therapist_name = models.ForeignKey(Therapist, on_delete=models.CASCADE)
