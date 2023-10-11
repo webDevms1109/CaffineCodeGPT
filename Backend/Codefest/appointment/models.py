@@ -9,9 +9,9 @@ class Appointment(models.Model):
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
     status = models.CharField(max_length=30)
-    client_id = models.ForeignKey(Client.client_id, on_delete=models.CASCADE, )
-    therapist_id = models.ForeignKey(Therapist.therapist_id, on_delete=models.CASCADE)
-    administrator_id = models.ForeignKey(Administrator.administrator_id, on_delete=models.CASCADE)
+    client_id = models.ForeignKey(Client, on_delete=models.CASCADE)
+    therapist_id = models.ForeignKey(Therapist, on_delete=models.CASCADE)
+    admin_id = models.ForeignKey(Administrator, on_delete=models.CASCADE)
 
     def _str_(self):
         return self.name
