@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Router, ActivatedRoute} from '@angular/router';
+import { data } from 'jquery';
+import { error } from 'console';
 @Component({
   selector: 'app-table-list',
   templateUrl: './table-list.component.html',
@@ -11,8 +13,7 @@ export class TableListComponent implements OnInit {
   httpOptions= {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      Accept: 'text/plain',
+      Accept: 'application/json',
     }),
   };
   constructor(
@@ -25,6 +26,18 @@ export class TableListComponent implements OnInit {
     this.getTherapistDetails()
   }
   getTherapistDetails(){
-    // this.http.get()
+    this.http.get("http://127.0.0.1:8000/administrator/2",
+    this.httpOptions
+    ).subscribe(
+      (data: any) => {
+        if (data !== undefined) {
+          console.log(data);
+          this.getTherapistDetails= data;
+        }
+      },
+      (error: any) => {
+        console.log("error")
+      }
+    );
   }
 }
