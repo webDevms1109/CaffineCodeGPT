@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-pbk^6(+&x9%h(7@88qm(1$rnq_wf+2&kwv1gvn_q-@i5hqm)w1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','listening-app-backend-py-new.azurewebsites.net']
 
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'administrator',
     'therapist',
     'appointment',
@@ -51,7 +52,31 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ALLOW_HEADERS = [
+'accept',
+'accept-encoding',
+'authorization',
+'content-type',
+'dnt',
+'origin',
+'user-agent',
+'x-csrftoken',
+'x-requested-with',
+]
+
+# settings.py
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:4200",
+]
+
+
+CORS_ALLOWED_METHODS= ['DELETE', 'GET','OPTIONS','PATCH','POST','PUT']
+
+
 
 ROOT_URLCONF = 'Codefest.urls'
 

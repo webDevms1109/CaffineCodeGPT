@@ -19,10 +19,10 @@ class SOS(models.Model):
         return str(self.result)
     
     def save(self, *args, **kwargs):
-        account_sid = 'AC5d6fca1d6a6714bf0e9371b1b9c1f3c0'
-        auth_token = 'f1795eb6aac74c5c7a5fcacdcda2d185'
+        #account_sid = 'AC5d6fca1d6a6714bf0e9371b1b9c1f3c0'
+        #auth_token = 'f1795eb6aac74c5c7a5fcacdcda2d185'
 
-        client = Client(account_sid, auth_token)
+        #client = Client(account_sid, auth_token)
 
         message = client.messages.create(
             body = "Hi",
