@@ -69,9 +69,33 @@ def sos(request):
     
     # Authentication
     s.login(sender_email_id, sender_email_id_password)
-    
+
+    appointment_details=Appointment.objects.filter(appointment_id='1')
+    data = list(appointment_details.values())[0]
+
+    print(data)
+
+    cid = data['client_id_id']
+    client_data = list(Client.objects.filter(client_id=cid).values())[0]
+
+    tid = data['therapist_id_id']
+    therapist_data = list(Therapist.objects.filter(therapist_id=tid).values())[0]
+
+    aid = data['admin_id_id']
+    admin_data = list(Administrator.objects.filter(admin_id=aid).values())[0]
+
+    print(cid)
+    print(client_data)
+
+    print(tid)
+    print(therapist_data)
+
+    print(aid)
+    print(admin_data)
+
+
     # message to be sent
-    message = "Help I am in Danger!"
+    message = "SOS triggered for therapist - " + therapist_data['name'] + "." + " Therapist phone number is " + therapist_data['phone_no'] + "." + " Client address is - " + client_data['address'] + "."
     
     # sending the mail
     s.sendmail(sender_email_id, receiver_email_id, message)
