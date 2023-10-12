@@ -159,8 +159,8 @@
                   <div class="card-body">
                     <h4 class="card-title"></h4>
                     <div class="card">
-                      <div class="card-header card-header-danger" style="background: #e43b3b !important;">
-                          <h4 class="card-title">Alerts </h4>
+                      <div class="card-header card-header-danger">
+                          <h4 class="card-title">These appointments has been missed </h4>
                           <!-- <p class="card-category">New employees on 15th September, 2016</p> -->
                       </div>
                       <div class="card-body table-responsive">
@@ -174,16 +174,7 @@
                                   <tr *ngFor="let item of alert; let i= index">
                                       <td>{{ item.id }}</td>
                                       <td>{{ item.startTime | date: 'medium' }}</td>
-                                      <td>
-                                        <div class="form-check">
-                                            <label class="form-check-label">
-                                                <input class="form-check-input" type="checkbox" value="">
-                                                <span class="form-check-sign">
-                                                    <span class="check"></span>
-                                                </span>
-                                            </label>
-                                        </div>
-                                    </td>
+                                      
                                       <!-- Add other data columns here -->
                                   </tr>
                               </tbody>
