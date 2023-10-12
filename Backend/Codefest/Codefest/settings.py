@@ -23,9 +23,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-pbk^6(+&x9%h(7@88qm(1$rnq_wf+2&kwv1gvn_q-@i5hqm)w1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['http://localhost:4200']
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:4200",
+    # Add other origins as needed
+]
+
+CORS_ALLOWED_METHODS= ['DELETE', 'GET','OPTIONS','PATCH','POST','PUT']
 
 
 # Application definition
@@ -56,7 +64,6 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
 ]
 
-CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'Codefest.urls'
 
@@ -130,5 +137,3 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-ALLOWED_HOSTS = ['*']

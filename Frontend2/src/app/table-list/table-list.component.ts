@@ -14,7 +14,7 @@ export class TableListComponent implements OnInit {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
-      Accept: 'text/plain',
+      Accept: 'application/json',
     }),
   };
   constructor(
