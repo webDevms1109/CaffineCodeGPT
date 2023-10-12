@@ -106,4 +106,3 @@ def sos(request):
     #update_db=Appointment.objects.filter(appointment_id=slug).update(status='Alert')
 
     return HttpResponse("SOS")
-
