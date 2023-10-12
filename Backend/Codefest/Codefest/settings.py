@@ -23,18 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-pbk^6(+&x9%h(7@88qm(1$rnq_wf+2&kwv1gvn_q-@i5hqm)w1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
-ALLOWED_HOSTS = ['http://localhost:4200']
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:4200",
-    # Add other origins as needed
-]
-
-CORS_ALLOWED_METHODS= ['DELETE', 'GET','OPTIONS','PATCH','POST','PUT']
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -53,7 +45,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -62,7 +53,29 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ALLOW_HEADERS = [
+'accept',
+'accept-encoding',
+'authorization',
+'content-type',
+'dnt',
+'origin',
+'user-agent',
+'x-csrftoken',
+'x-requested-with',
+]
+
+# settings.py
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:4200",
+]
+
+
+CORS_ALLOWED_METHODS= ['DELETE', 'GET','OPTIONS','PATCH','POST','PUT']
+
 
 
 ROOT_URLCONF = 'Codefest.urls'

@@ -13,7 +13,6 @@ export class TableListComponent implements OnInit {
   httpOptions= {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
       Accept: 'application/json',
     }),
   };
@@ -32,6 +31,7 @@ export class TableListComponent implements OnInit {
     ).subscribe(
       (data: any) => {
         if (data !== undefined) {
+          console.log(data);
           this.getTherapistDetails= data;
         }
       },
