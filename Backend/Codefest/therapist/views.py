@@ -56,7 +56,7 @@ def checkOut(request, slug):
     else:
         return JsonResponse({"output" : "DB not updated"})
     
-def sos(request, slug):
+def sos(request):
     # creates SMTP session
     sender_email_id = "earlistening622@gmail.com"
     sender_email_id_password = "hpys hliy dczy qaky"
